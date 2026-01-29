@@ -1,0 +1,10 @@
+{
+  "name": "IDA图标包",
+  "description": "收集一些自己脚本用到的图标",
+  "icons": [
+    {
+      "name": "ems.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/ems.png"
+    }
+  ]
+}
