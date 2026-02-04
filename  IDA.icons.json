@@ -3,6 +3,10 @@
   "description": "收集一些自己用到的图标",
   "icons": [
     {
+      "name": "jms1.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/jms1.png"
+    },
+    {
       "name": "IDATG.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/IDATG.png"
     },
