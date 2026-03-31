@@ -3,172 +3,176 @@
   "description": "收集一些自己用到的图标",
   "icons": [
     {
-      "name": "jms1.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/jms1.png"
+      "name": "IDA.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/IDA.png"
     },
     {
       "name": "cfmoto.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/cfmoto.png"
     },
     {
-      "name": "PandaY.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/PandaY.png"
-    },
-    {
-      "name": "raise.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/raise.png"
-    },
-    {
-      "name": "Panda3.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Panda3.png"
-    },
-    {
-      "name": "sntp1.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/sntp1.png"
-    },
-    {
-      "name": "sntp3.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/sntp3.png"
+      "name": "tg.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/tg.png"
     },
     {
       "name": "apple7.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/apple7.png"
     },
     {
-      "name": "tt1.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/tt1.png"
-    },
-    {
-      "name": "Peach.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Peach.png"
+      "name": "tt.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/tt.png"
     },
     {
       "name": "wk.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/wk.png"
     },
     {
-      "name": "Pilipili.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Pilipili.png"
-    },
-    {
-      "name": "dingdong.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/dingdong.png"
-    },
-    {
-      "name": "tg.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/tg.png"
-    },
-    {
       "name": "Magpie2.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Magpie2.png"
-    },
-    {
-      "name": "xigua.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/xigua.png"
-    },
-    {
-      "name": "sntp4.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/sntp4.png"
-    },
-    {
-      "name": "sntp2.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/sntp2.png"
-    },
-    {
-      "name": "ntrr.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/ntrr.png"
-    },
-    {
-      "name": "chatgpt.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/chatgpt.png"
-    },
-    {
-      "name": "tt.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/tt.png"
-    },
-    {
-      "name": "M.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/M.png"
-    },
-    {
-      "name": "google1.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/google1.png"
-    },
-    {
-      "name": "hhgf.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/hhgf.png"
-    },
-    {
-      "name": "google.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/google.png"
-    },
-    {
-      "name": "IDA.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/IDA.png"
     },
     {
       "name": "google9.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/google9.png"
     },
     {
-      "name": "Magpie.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Magpie.png"
+      "name": "sntp4.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/sntp4.png"
     },
     {
-      "name": "PandaTV.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/PandaTV.png"
+      "name": "raise.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/raise.png"
     },
     {
-      "name": "ntr.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/ntr.png"
-    },
-    {
-      "name": "youtube.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/youtube.png"
-    },
-    {
-      "name": "M1.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/M1.png"
-    },
-    {
-      "name": "smzdm.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/smzdm.png"
-    },
-    {
-      "name": "jms.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/jms.png"
+      "name": "jms1.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/jms1.png"
     },
     {
       "name": "qx.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/qx.png"
     },
     {
+      "name": "ntrr.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/ntrr.png"
+    },
+    {
       "name": "huatu.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/huatu.png"
     },
     {
-      "name": "Peach2.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Peach2.png"
+      "name": "oracle.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/oracle.png"
     },
     {
-      "name": "surge.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/surge.png"
+      "name": "google1.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/google1.png"
+    },
+    {
+      "name": "Pilipili.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Pilipili.png"
+    },
+    {
+      "name": "jms.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/jms.png"
+    },
+    {
+      "name": "ntr.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/ntr.png"
+    },
+    {
+      "name": "Peach.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Peach.png"
+    },
+    {
+      "name": "Panda3.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Panda3.png"
     },
     {
       "name": "gua.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/gua.png"
     },
     {
-      "name": "Nexitally.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Nexitally.png"
+      "name": "youtube.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/youtube.png"
+    },
+    {
+      "name": "SMZDMM.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/SMZDMM.png"
+    },
+    {
+      "name": "hhgf.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/hhgf.png"
+    },
+    {
+      "name": "sntp3.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/sntp3.png"
+    },
+    {
+      "name": "M1.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/M1.png"
     },
     {
       "name": "QL.png",
       "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/QL.png"
     },
     {
-      "name": "SMZDMM.png",
-      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/SMZDMM.png"
+      "name": "sntp2.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/sntp2.png"
+    },
+    {
+      "name": "M.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/M.png"
+    },
+    {
+      "name": "PandaY.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/PandaY.png"
+    },
+    {
+      "name": "xigua.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/xigua.png"
+    },
+    {
+      "name": "chatgpt.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/chatgpt.png"
+    },
+    {
+      "name": "dingdong.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/dingdong.png"
+    },
+    {
+      "name": "tt1.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/tt1.png"
+    },
+    {
+      "name": "google.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/google.png"
+    },
+    {
+      "name": "surge.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/surge.png"
+    },
+    {
+      "name": "sntp1.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/sntp1.png"
+    },
+    {
+      "name": "Nexitally.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Nexitally.png"
+    },
+    {
+      "name": "PandaTV.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/PandaTV.png"
+    },
+    {
+      "name": "smzdm.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/smzdm.png"
+    },
+    {
+      "name": "Peach2.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Peach2.png"
+    },
+    {
+      "name": "Magpie.png",
+      "url": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/Magpie.png"
     }
   ]
 }
