@@ -221,10 +221,10 @@
     {
       "id": "sliverkiss_midea",
       "name": "美的会员",
-      "keys": ["midea_data","midea_actvld","midea_channelld","xte_shell"],
+      "keys": ["midea_data","midea_actvId","midea_channelId","xte_shell"],
       "settings": [
         { "id": "midea_data", "name": "会员数据", "type": "textarea" },
-        { "id": "xte_shell", "name": "会员数据", "type": "textarea" }
+        { "id": "xte_shell", "name": "xte积分兑换", "type": "textarea" }
       ],
       "icons": [
         "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Midea.png",
