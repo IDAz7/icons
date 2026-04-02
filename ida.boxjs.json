@@ -1,0 +1,456 @@
+{
+  "id": "ida.app.sub",
+  "name": "IDA脚本订阅",
+  "author": "IDA",
+  "icon": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/wk.png",
+  "repo": "https://github.com/IDAz7",
+  "apps": [
+    {
+      "id": "auto_ck_sync",
+      "name": "自动同步CK至青龙 (IDA提速版)",
+      "keys": [
+        "ql_base_url",
+        "ql_client_id",
+        "ql_client_secret",
+        "ql_local_rules",
+        "ql_api_token",
+        "ql_api_token_expire",
+        "ql_notification",
+        "ql_debug"
+      ],
+      "settings": [
+        {
+          "id": "ql_base_url",
+          "name": "青龙面板地址",
+          "type": "text",
+          "desc": "包含协议和端口，例如：http://192.168.1.5:5700"
+        },
+        {
+          "id": "ql_client_id",
+          "name": "应用 Client ID",
+          "type": "text"
+        },
+        {
+          "id": "ql_client_secret",
+          "name": "应用 Client Secret",
+          "type": "password"
+        },
+        {
+          "id": "ql_local_rules",
+          "name": "🏠 本地抓取规则 (JSON)",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 5,
+          "desc": "填入本地规则JSON数组，优先读取。"
+        },
+        {
+          "id": "ql_api_token",
+          "name": "🔑 缓存的 API Token",
+          "type": "text",
+          "desc": "自动维护，请勿手动修改。"
+        },
+        {
+          "id": "ql_api_token_expire",
+          "name": "⏳ Token 过期时间戳",
+          "type": "text",
+          "desc": "自动维护的时间戳。"
+        },
+        {
+          "id": "ql_notification",
+          "name": "开启通知",
+          "type": "boolean",
+          "val": true
+        },
+        {
+          "id": "ql_debug",
+          "name": "开启调试日志",
+          "type": "boolean",
+          "val": false
+        }
+      ],
+      "author": "@IDA",
+      "icons": [
+        "https://raw.githubusercontent.com/czy13724/LeviIcons/main/leviicons/QingLong.png",
+        "https://raw.githubusercontent.com/czy13724/LeviIcons/main/leviicons/QingLong.png"
+      ]
+    },
+    {
+      "id": "Sliverkiss_QingLong",
+      "name": "Sliverkiss-青龙配置",
+      "keys": ["@SAKURA_QL.ckName", "SAKURA_QL", "yuheng_ql_token"],
+      "settings": [
+        { "id": "@SAKURA_QL.ckName", "name": "上传变量名", "type": "text" },
+        { "id": "@SAKURA_QL.host", "name": "服务器地址", "type": "text" },
+        { "id": "@SAKURA_QL.clientId", "name": "clientId", "type": "text" },
+        { "id": "@SAKURA_QL.secret", "name": "secret", "type": "password" }
+      ],
+      "author": "@Sliverkiss",
+      "icons": [
+        "https://qn.whyour.cn/logo.png",
+        "https://qn.whyour.cn/logo.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_setting",
+      "name": "Sliverkiss-参数设置",
+      "keys": ["is_debug", "bark_key"],
+      "settings": [
+        { "id": "is_debug", "name": "调试模式", "type": "boolean", "val": false },
+        { "id": "bark_key", "name": "Bark通知Key", "type": "text" }
+      ],
+      "icons": [
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/31/0b/0d310b25-aa91-99c5-b23b-af1e8753c4d0/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/144x144.png",
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/31/0b/0d310b25-aa91-99c5-b23b-af1e8753c4d0/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/144x144.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_surge",
+      "name": "Surge通用重放",
+      "keys": ["sliverkiss_surge_retry", "@sliverkiss.record"],
+      "settings": [
+        { "id": "sliverkiss_surge_retry", "name": "重放ckName", "type": "text" }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/githubdulong/Script/master/Images/Surge_logo.png",
+        "https://raw.githubusercontent.com/githubdulong/Script/master/Images/Surge_logo.png"
+      ]
+    },
+    {
+      "id": "qch",
+      "name": "七彩虹商城",
+      "keys": ["qch_data", "PC_TASK_SWITCH", "qch_draw_switch"],
+      "settings": [
+        { "id": "qch_data", "name": "移动端账号", "type": "textarea" },
+        { "id": "PC_TASK_SWITCH", "name": "电脑端任务", "type": "boolean", "val": false },
+        { "id": "qch_draw_switch", "name": "抽奖功能开关", "type": "boolean", "val": false }
+      ],
+      "icons": [
+        "https://fastly.jsdelivr.net/gh/czy13724/LeviIcons@main/leviicons/qch.png",
+        "https://fastly.jsdelivr.net/gh/czy13724/LeviIcons@main/leviicons/qch.png"
+      ]
+    },
+    {
+      "id": "lzly",
+      "name": "绿芽积分",
+      "keys": ["lzly_data", "lzly_cleanPlate", "lzly_collect"],
+      "settings": [
+        { "id": "lzly_data", "name": "账号数据", "type": "textarea" },
+        { "id": "lzly_cleanPlate", "name": "光盘行动", "type": "boolean", "val": false },
+        { "id": "lzly_collect", "name": "自动收积分", "type": "boolean", "val": true }
+      ],
+      "icons": [
+        "https://fastly.jsdelivr.net/gh/czy13724/LeviIcons@main/leviicons/lzly.png",
+        "https://fastly.jsdelivr.net/gh/czy13724/LeviIcons@main/leviicons/lzly.png"
+      ]
+    },
+    {
+      "id": "sypm",
+      "name": "漱玉平民农场",
+      "keys": ["sypm_data", "sypm_notify_simple"],
+      "settings": [
+        { "id": "sypm_data", "name": "账号数据", "type": "textarea" },
+        { "id": "sypm_notify_simple", "name": "整合通知", "type": "boolean", "val": false }
+      ],
+      "icons": [
+        "https://fastly.jsdelivr.net/gh/czy13724/LeviIcons@main/leviicons/sypm.png",
+        "https://fastly.jsdelivr.net/gh/czy13724/LeviIcons@main/leviicons/sypm.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_sfsy",
+      "name": "顺丰速运",
+      "keys": ["sfsy_data", "sfsy_bee"],
+      "settings": [
+        { "id": "sfsy_data", "name": "会员数据", "type": "textarea" },
+        { "id": "sfsy_bee", "name": "采蜜任务", "type": "boolean", "val": false }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/sfsy.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/sfsy.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_ysf",
+      "name": "云闪付",
+      "keys": ["ysf_data"],
+      "settings": [
+        { "id": "ysf_data", "name": "账号数据", "type": "textarea" }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Ysf.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Ysf.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_zmhy",
+      "name": "中免会员",
+      "keys": ["zmhy_data"],
+      "settings": [
+        { "id": "zmhy_data", "name": "账号数据", "type": "textarea" }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Zmhy.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Zmhy.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_zgrb",
+      "name": "中国人保",
+      "keys": ["zgrb_data", "zgrb_ecard"],
+      "settings": [
+        { "id": "zgrb_data", "name": "账号数据", "type": "textarea" },
+        { "id": "zgrb_ecard", "name": "自动兑换E卡", "type": "boolean", "val": false }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/zgrb.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/zgrb.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_michelin",
+      "name": "米其林",
+      "keys": ["michelin_data"],
+      "settings": [
+        { "id": "michelin_data", "name": "账号数据", "type": "textarea" }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Michelin.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Michelin.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_midea",
+      "name": "美的会员",
+      "keys": ["midea_data"],
+      "settings": [
+        { "id": "midea_data", "name": "会员数据", "type": "textarea" }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Midea.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Midea.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_midea_sq",
+      "name": "美的社区",
+      "keys": ["midea_sq_data"],
+      "settings": [
+        { "id": "midea_sq_data", "name": "社区数据", "type": "textarea" }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Midea.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Midea.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_dlm",
+      "name": "达美乐披萨",
+      "keys": ["dlm_data", "dlm_game"],
+      "settings": [
+        { "id": "dlm_data", "name": "账号数据", "type": "textarea" },
+        { "id": "dlm_game", "name": "活动id", "type": "text" }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Dlm.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Dlm.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_iqoo",
+      "name": "IQOO社区",
+      "keys": ["iqoos_data", "iqoo_draw"],
+      "settings": [
+        { "id": "iqoos_data", "name": "账号数据", "type": "textarea" },
+        { "id": "iqoo_draw", "name": "自动抽奖", "type": "boolean", "val": false }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/czy13724/LeviIcons/main/leviicons/iqooc.png",
+        "https://raw.githubusercontent.com/czy13724/LeviIcons/main/leviicons/iqooc.png"
+      ]
+    },
+    {
+      "id": "xmh",
+      "name": "星妈会",
+      "keys": ["xmh_data"],
+      "settings": [
+        { "id": "xmh_data", "name": "账号数据", "type": "textarea" }
+      ],
+      "icons": [
+        "https://fastly.jsdelivr.net/gh/czy13724/LeviIcons@main/leviicons/xmh.png",
+        "https://fastly.jsdelivr.net/gh/czy13724/LeviIcons@main/leviicons/xmh.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_fxsh",
+      "name": "粉象生活",
+      "keys": ["fxsh_data", "fxsh_wallet"],
+      "settings": [
+        { "id": "fxsh_data", "name": "账号数据", "type": "textarea" },
+        { "id": "fxsh_wallet", "name": "自动提现", "type": "boolean", "val": false }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/fxsh.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/fxsh.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_nodeseek",
+      "name": "NodeSeek社区",
+      "keys": ["nodeseek_data"],
+      "settings": [
+        { "id": "nodeseek_data", "name": "账号数据", "type": "textarea" }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/nodeseek.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/nodeseek.png"
+      ]
+    },
+    {
+      "id": "sliverkiss_cqxhsd",
+      "name": "新华书店",
+      "keys": ["cqxhsd_data"],
+      "settings": [
+        { "id": "cqxhsd_data", "name": "账号数据", "type": "textarea" }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Cqxhsd.png",
+        "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Cqxhsd.png"
+      ]
+    },
+    {
+      "id": "IQOO",
+      "name": "IQOO社区兑换",
+      "keys": ["IQOO_Acc", "IQOO_GiftId"],
+      "scripts": [
+        {
+          "name": "IQOO社区兑换-手动执行",
+          "script": "https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/IQOO/IQOO_Exchange.js"
+        }
+      ],
+      "settings": [
+        {
+          "id": "IQOO_Acc",
+          "name": "兑换账号",
+          "val": "0",
+          "type": "text",
+          "desc": "默认第一个用户兑换，第二个填1，以此类推"
+        },
+        {
+          "id": "IQOO_GiftId",
+          "name": "商品id",
+          "val": "",
+          "type": "text",
+          "desc": "运行脚本查看"
+        }
+      ],
+      "author": "@xzxxn777",
+      "icons": [
+        "https://raw.githubusercontent.com/czy13724/LeviIcons/main/leviicons/iqooc.png",
+        "https://raw.githubusercontent.com/czy13724/LeviIcons/main/leviicons/iqooc.png"
+      ]
+    },
+    {
+      "id": "HaiTian",
+      "name": "海天美味馆兑换",
+      "keys": ["HaiTian_Acc", "HaiTian_GiftId", "HaiTian_Goods"],
+      "scripts": [
+        {
+          "name": "海天美味馆兑换-手动执行",
+          "script": "https://raw.githubusercontent.com/xzxxn777/Surge/main/Script/HaiTian/HaiTian_Exchange.js"
+        }
+      ],
+      "settings": [
+        {
+          "id": "HaiTian_Acc",
+          "name": "兑换账号",
+          "val": "0",
+          "type": "text",
+          "desc": "默认第一个用户兑换，第二个填1，以此类推"
+        },
+        {
+          "id": "HaiTian_GiftId",
+          "name": "商品id",
+          "val": "0",
+          "type": "text",
+          "desc": "运行脚本查看"
+        },
+        {
+          "id": "HaiTian_Goods",
+          "name": "查看商品列表",
+          "val": "false",
+          "type": "boolean",
+          "desc": "默认关闭，开启后运行脚本查看"
+        }
+      ],
+      "author": "@xzxxn777"
+    },
+    {
+      "id": "Sliverkiss_QuantumultX_Checkin",
+      "name": "Quantumult Checkin",
+      "keys": [
+        "@sliverkiss_qx.confPath",
+        "@sliverkiss_qx.ckName",
+        "@sliverkiss_qx.scriptName",
+        "@sliverkiss_qx.fileName",
+        "@sliverkiss_qx.cron",
+        "@sliverkiss_qx.getCookieUrl"
+      ],
+      "scripts": [
+        {
+          "name": "生成脚本相关文件",
+          "script": "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/refs/heads/main/quantumultX_writeConf.js"
+        }
+      ],
+      "settings": [
+        {
+          "id": "@sliverkiss_qx.getCookieUrl",
+          "name": "签到url",
+          "val": "",
+          "type": "text",
+          "desc": "填入签到请求的url"
+        },
+        {
+          "id": "@sliverkiss_qx.cron",
+          "name": "脚本定时",
+          "val": "",
+          "type": "text",
+          "desc": "填入要生成脚本的定时表达式"
+        },
+        {
+          "id": "@sliverkiss_qx.scriptName",
+          "name": "脚本名称",
+          "val": "",
+          "type": "text",
+          "desc": "填入task列表中想要显示的脚本名称"
+        },
+        {
+          "id": "@sliverkiss_qx.ckName",
+          "name": "Cookie变量名称",
+          "val": "",
+          "type": "text",
+          "desc": "填入要读取和写入的cookie变量名称"
+        },
+        {
+          "id": "@sliverkiss_qx.fileName",
+          "name": "脚本文件名称",
+          "val": "",
+          "type": "text",
+          "desc": "填入要读取和写入的脚本文件名称"
+        },
+        {
+          "id": "@sliverkiss_qx.confPath",
+          "name": "配置文件名称",
+          "val": "",
+          "type": "text",
+          "desc": "填入要读取和写入的配置文件名称"
+        }
+      ],
+      "author": "@sliverkiss",
+      "script": "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/refs/heads/main/quantumultX_writeConf.js",
+      "icons": [
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Quantumult_X.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Quantumult_X.png"
+      ]
+    }
+  ]
+}
