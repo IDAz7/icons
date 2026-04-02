@@ -221,7 +221,7 @@
     {
       "id": "sliverkiss_midea",
       "name": "美的会员",
-      "keys": ["midea_data"],
+      "keys": ["midea_data","midea_actvid","midea_channelid","xte_shell"],
       "settings": [
         { "id": "midea_data", "name": "会员数据", "type": "textarea" }
       ],
@@ -233,9 +233,9 @@
     {
       "id": "sliverkiss_midea_sq",
       "name": "美的社区",
-      "keys": ["midea_sq_data"],
+      "keys": ["misq_data"],
       "settings": [
-        { "id": "midea_sq_data", "name": "社区数据", "type": "textarea" }
+        { "id": "misq_data", "name": "社区数据", "type": "textarea" }
       ],
       "icons": [
         "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Midea.png",
@@ -245,10 +245,10 @@
     {
       "id": "sliverkiss_dlm",
       "name": "达美乐披萨",
-      "keys": ["dlm_data", "dlm_game"],
+      "keys": ["dlm_data", "dlm_activity"],
       "settings": [
         { "id": "dlm_data", "name": "账号数据", "type": "textarea" },
-        { "id": "dlm_game", "name": "活动id", "type": "text" }
+        { "id": "dlm_activity", "name": "活动id", "type": "text" }
       ],
       "icons": [
         "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Dlm.png",
@@ -352,7 +352,7 @@
         {
       "id": "HaiTian",
       "name": "海天美味馆兑换",
-      "keys": ["HaiTian_Acc", "HaiTian_GiftId", "HaiTian_Goods"],
+      "keys": ["HaiTian","HaiTian_Acc", "HaiTian_GiftId", "HaiTian_Goods"],
       "scripts": [
         {
           "name": "海天美味馆兑换-手动执行",
