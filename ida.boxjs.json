@@ -1,7 +1,7 @@
 {
   "id": "ida.app.sub",
   "name": "IDA脚本订阅",
-  "author": "IDA",
+  "author": "@IDA",
   "icon": "https://raw.githubusercontent.com/IDAz7/icons/main/icon/wk.png",
   "repo": "https://github.com/IDAz7",
   "apps": [
