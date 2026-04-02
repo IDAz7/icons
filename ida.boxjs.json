@@ -12,6 +12,7 @@
         "ql_base_url",
         "ql_client_id",
         "ql_client_secret",
+        "ql_rules_url",
         "ql_local_rules",
         "ql_api_token",
         "ql_api_token_expire",
@@ -34,6 +35,13 @@
           "id": "ql_client_secret",
           "name": "应用 Client Secret",
           "type": "password"
+        },
+        {"id": "ql_rules_url",
+          "name": "远程规则URL",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 5,
+          "desc": "本地规则没有读取到会再次执行远程规则URL。"
         },
         {
           "id": "ql_local_rules",
