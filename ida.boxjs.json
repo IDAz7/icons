@@ -7,7 +7,7 @@
   "apps": [
     {
       "id": "auto_ck_sync",
-      "name": "自动同步CK至青龙 (IDA提速版)",
+      "name": "通用同步CK至青龙",
       "keys": [
         "ql_base_url",
         "ql_client_id",
@@ -70,8 +70,8 @@
       ],
       "author": "@IDA",
       "icons": [
-        "https://raw.githubusercontent.com/czy13724/LeviIcons/main/leviicons/QingLong.png",
-        "https://raw.githubusercontent.com/czy13724/LeviIcons/main/leviicons/QingLong.png"
+        "https://raw.githubusercontent.com/IDAz7/icons/main/icon/QL.png",
+        "https://raw.githubusercontent.com/IDAz7/icons/main/icon/QL.png"
       ]
     },
     {
