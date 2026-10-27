@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>IDA 图标订阅</title>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9823824864995295"
+     crossorigin="anonymous"></script>
+  
+  <script>
+    // 获取最佳 CDN 前缀（用于加载静态资源）
+    function getBestCDN() {
+      const lastCDN = localStorage.getItem('lastSuccessfulCDN');
+      if (lastCDN) {
+        try {
+          const url = new URL(lastCDN);
+          return url.origin + '/';
+        } catch(e) {}
+      }
+      return 'https://fastly.jsdelivr.net/';
+    }
+    
+    const CDN_BASE = getBestCDN();
+    
+    // --- 动态设置 Favicon ---
+    const favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.href = 'https://fastly.jsdelivr.net/gh/IDAz7/icons@main/profile.jpg'; 
+    document.head.appendChild(favicon);
+
+    // 动态加载 CSS
+    const css1 = document.createElement('link');
+    css1.rel = 'stylesheet';
+    css1.href = 'https://npm.elemecdn.com/font6pro@6.0.1/css/all.min.css';
+    document.head.appendChild(css1);
+    
+    const css2 = document.createElement('link');
+    css2.rel = 'stylesheet';
+    css2.href = 'https://npm.elemecdn.com/font-awesome@4.7.0/css/font-awesome.min.css';
+    document.head.appendChild(css2);
+    
+    // 动态加载 live2d (仅桌面端)
+    if (window.innerWidth > 768) {
+      const live2d = document.createElement('script');
+      live2d.src = 'https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js';
+      document.head.appendChild(live2d);
+    }
+  </script>
+  
+  <style>
+    :root {
+      --bg-color: #f0f0f0;
+      --text-color: #333;
+      --item-bg: #fff;
+      --shadow: rgba(0,0,0,0.1);
+      --name-color: black;
+      
+      /* --- 玻璃拟态变量 (日间) --- */
+      --glass-bg: rgba(255, 255, 255, 0.3);
+      --glass-border: rgba(255, 255, 255, 0.4);
+      --glass-text: #333;
+      --glass-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    body.dark-mode {
+      --bg-color: #333;
+      --text-color: #f0f0f0;
+      --item-bg: #555;
+      --shadow: rgba(255,255,255,0.1);
+      --name-color: white;
+      
+      /* --- 玻璃拟态变量 (夜间) --- */
+      --glass-bg: rgba(0, 0, 0, 0.3);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-text: #fff;
+      --glass-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    body {
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: background-image 0.5s, background-color 0.5s;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: sans-serif;
+      margin: 0;
+      overflow-x: hidden; 
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; padding-top: 80px; }
+    h1, #description { text-align: center; }
+    
+    /* --- 顶部工具栏 --- */
+    .header-toolbar {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .toolbar-item {
+      height: 36px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s;
+      background-color: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      color: var(--glass-text) !important;
+      box-shadow: var(--glass-shadow);
+    }
+    
+    .toolbar-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      background-color: var(--glass-bg);
+      filter: brightness(1.1);
+    }
+
+    #sponsorLink { padding: 0 18px; border-radius: 6px; font-weight: 600; gap: 8px; font-size: 13px; }
+    #sponsorLink i { font-size: 16px; }
+
+    #cdnSelector {
+      padding: 0 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      outline: none;
+      text-align: center;
+      text-align-last: center;
+      -moz-text-align-last: center;
+      font-weight: 500;
+      font-size: 13px;
+      max-width: 160px;
+    }
+    #cdnSelector option { background-color: var(--item-bg); color: var(--text-color); }
+
+    #darkModeToggle { width: 36px; padding: 0; border-radius: 50%; cursor: pointer; font-size: 18px; }
+
+    .contact-menu {
+      position: relative; width: 36px; height: 36px; padding: 0;
+      background: none; border: none; box-shadow: none; backdrop-filter: none;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-toggle {
+      width: 100%; height: 100%; border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 18px;
+      position: relative; overflow: hidden;
+      background-color: var(--glass-bg); backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px); border: 1px solid var(--glass-border);
+      color: var(--glass-text); box-shadow: var(--glass-shadow); transition: all 0.3s;
+    }
+    .contact-toggle:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .contact-toggle::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 60%; height: 100%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+      transform: skewX(-20deg); animation: shimmer 3s infinite ease-in-out; pointer-events: none;
+    }
+
+    .contact-dropdown {
+      position: absolute; top: 50px; right: 0; background: var(--item-bg);
+      border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); padding: 10px;
+      min-width: 160px; opacity: 0; visibility: hidden;
+      transform: translateY(-10px); transition: all 0.3s; z-index: 101; text-align: left;
+    }
+    .contact-menu:hover .contact-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+    .contact-dropdown a {
+      display: flex; align-items: center; gap: 10px; padding: 8px 12px;
+      color: var(--text-color); text-decoration: none; border-radius: 5px; font-size: 13px;
+    }
+    .contact-dropdown a i { width: 16px; text-align: center; }
+    .contact-dropdown a:hover { background-color: var(--shadow); }
+
+    #githubLink { width: 40px; height: 40px; border-radius: 50%; position: relative; overflow: hidden; }
+    #githubLink svg { width: 28px; height: 28px; fill: var(--glass-text); filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+    @keyframes shimmer {
+      0% { transform: translateX(-150%) skewX(-20deg); }
+      50% { transform: translateX(200%) skewX(-20deg); }
+      100% { transform: translateX(200%) skewX(-20deg); }
+    }
+    #githubLink::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 60%; height: 100%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+      transform: skewX(-20deg); animation: shimmer 3s infinite ease-in-out; pointer-events: none;
+    }
+
+    /* --- 中部控制栏 --- */
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap; 
+    }
+    
+    #search { 
+      flex-grow: 1; 
+      padding: 0 15px; 
+      height: 40px;
+      font-style: italic; 
+      border-radius: 6px;
+      outline: none;
+      box-sizing: border-box;
+      background-color: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-color);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--glass-shadow);
+      transition: all 0.3s;
+    }
+    #search::placeholder { color: rgba(128, 128, 128, 0.8); }
+    #search:focus { background-color: var(--item-bg); border-color: #4CAF50; }
+    
+    .controls-right {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap; 
+    }
+
+    #categoryFilter { 
+      padding: 0 15px; 
+      min-width: 130px;
+      height: 40px;
+      cursor: pointer;
+      border-radius: 6px;
+      outline: none;
+      box-sizing: border-box;
+      text-align: center;
+      text-align-last: center;
+      -moz-text-align-last: center;
+      background-color: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-color);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--glass-shadow);
+    }
+    #categoryFilter option { background-color: var(--item-bg); text-align: center; }
+    
+    .btn-action {
+      padding: 0 15px;
+      height: 40px;
+      border: none; 
+      border-radius: 6px; 
+      cursor: pointer;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.3s;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      font-size: 13px;
+    }
+    .btn-action:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+
+    .copy-collection-btn { background-color: #2196F3; color: white; }
+    .copy-collection-btn:hover { background-color: #1976D2; }
+
+    .download-all { background-color: #4CAF50; color: white; }
+    .download-all:hover { background-color: #45a049; }
+
+    /* 图标网格布局 */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .icon-item {
+      background-color: var(--item-bg); border-radius: 8px;
+      padding: 10px; text-align: center;
+      box-shadow: 0 2px 4px var(--shadow); transition: 0.3s;
+    }
+    .icon-item img {
+      width: 64px; height: 64px;
+      object-fit: contain;
+      cursor: pointer; display: block; margin: 0 auto;
+    }
+    .icon-item p { 
+      margin: 10px 0; 
+      font-size: 12px; 
+      color: var(--name-color); 
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .icon-actions { display: flex; flex-direction: column; gap: 5px; }
+    
+    .icon-actions button {
+      background-color: #4CAF50; border: none; padding: 5px;
+      font-size: 12px; color: white; cursor: pointer; border-radius: 3px;
+      white-space: nowrap; 
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .modal {
+      display: none; position: fixed; z-index: 2000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center; align-items: center;
+    }
+    .modal-content {
+      background-color: #fff; padding: 20px;
+      border-radius: 10px; text-align: center;
+      max-width: 90%;
+    }
+    .modal-content img { max-width: 100%; max-height: 80vh; }
+    #closeModal {
+      position: absolute; top: 10px; right: 10px;
+      font-size: 20px; font-weight: bold;
+      background-color: rgba(255,255,255,0.7);
+      padding: 5px; border-radius: 50%; cursor: pointer;
+    }
+    .footer {
+      position: fixed; bottom: 10px; width: 100%;
+      text-align: center; font-size: 12px; color: var(--text-color);
+      pointer-events: none; opacity: 0.7;
+    }
+    .footer a { pointer-events: auto; color: var(--text-color); font-weight: bold; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .loading { text-align: center; padding: 20px; font-size: 16px; }
+    
+    .toast-box {
+      position: fixed; 
+      padding: 12px 20px;
+      border-radius: 8px 0 0 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      font-size: 14px; 
+      z-index: 9999;
+      color: white;
+      display: flex; align-items: center; gap: 10px; white-space: nowrap;
+      right: -400px;
+      transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .toast-box.show { right: 0; }
+    .cdn-toast { top: 80px; background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+    .message-toast { top: 140px; background-color: #333; border-left: 5px solid #4CAF50; }
+
+    @media (max-width: 768px) {
+      .header-toolbar {
+        position: relative; 
+        top: auto; right: auto;
+        justify-content: center; 
+        margin: 10px auto;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+      .container { padding-top: 20px; }
+      .controls { flex-direction: column; gap: 10px; }
+      #search { width: 100%; }
+      .controls-right { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      #categoryFilter { grid-column: 1 / -1; width: 100%; min-width: unset; }
+      .copy-collection-btn, .download-all { width: 100%; }
+      #cdnSelector { max-width: 120px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+      .icon-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 15px; padding: 10px; }
+      
+      .toast-box {
+        right: auto; left: 50%; width: auto; min-width: 200px; justify-content: center; border-radius: 8px;
+        transform: translateX(-50%) translateY(-200%);
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .toast-box.show { right: auto; transform: translateX(-50%) translateY(0); }
+      .cdn-toast { top: 10px; }
+      .message-toast { top: 60px; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container" style="padding-bottom: 0; padding-top: 40px;">
+    <h1>IDA图标订阅</h1>
+    <div id="description"></div>
+  </div>
+
+  <div class="header-toolbar">
+    <a id="sponsorLink" class="toolbar-item" href="https://buymeacoffee.com/czy13724" target="_blank">
+      <i class="fa fa-coffee"></i>
+      <span>赞助</span>
+    </a>
+    
+    <select id="cdnSelector" class="toolbar-item">
+      <option value="auto">🚀 自动选择 (Auto)</option>
+      <optgroup label="jsDelivr 系列 (推荐)">
+        <option value="https://fastly.jsdelivr.net/gh/IDAz7/icons@main/">Fastly (快)</option>
+        <option value="https://gcore.jsdelivr.net/gh/IDAz7/icons@main/">Gcore</option>
+        <option value="https://cdn.jsdelivr.net/gh/IDAz7/icons@main/">Cloudflare</option>
+        <option value="https://testingcf.jsdelivr.net/gh/IDAz7/icons@main/">Test-CF</option>
+        <option value="https://cdn.jsdmirror.com/gh/IDAz7/icons@main/">JSDMirror (国内优)</option>
+      </optgroup>
+      <optgroup label="加速镜像 (Proxy)">
+        <option value="https://cdn.staticaly.com/gh/IDAz7/icons@main/">Staticaly</option>
+        <option value="https://raw.gitmirror.com/IDAz7/icons/main/">GitMirror</option>
+        <option value="https://raw.kgithub.com/IDAz7/icons/main/">KGitHub</option>
+        <option value="https://raw.kkgithub.com/IDAz7/icons/main/">KKGitHub</option>
+        <option value="https://ghproxy.net/https://raw.githubusercontent.com/IDAz7/icons/main/">GHProxy.net</option>
+        <option value="https://ghproxy.com/https://raw.githubusercontent.com/IDAz7/icons/main/">GHProxy.com</option>
+        <option value="https://mirror.ghproxy.com/https://raw.githubusercontent.com/IDAz7/icons/main/">Mirror.GHProxy</option>
+      </optgroup>
+      <optgroup label="原始源 (Slow)">
+        <option value="https://raw.githubusercontent.com/IDAz7/icons/main/">GitHub Raw</option>
+      </optgroup>
+    </select>
+
+    <button id="darkModeToggle" class="toolbar-item" title="切换暗黑模式">
+      <i class="fa fa-moon"></i>
+    </button>
+    <a id="githubLink" class="toolbar-item" href="https://github.com/IDAz7/icons" target="_blank" title="GitHub">
+      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="container" style="padding-top: 10px;">
+    <div class="controls">
+      <input type="text" id="search" placeholder="搜索图标 (Search Icons)...">
+      <div class="controls-right">
+        <select id="categoryFilter"><option value="">📌 全部 (All)</option></select>
+        <button class="btn-action copy-collection-btn" id="copyCollectionBtn">
+          <i class="fa fa-link"></i> 复制合集链接
+        </button>
+        <button class="btn-action download-all" id="downloadAll">下载全部图标</button>
+      </div>
+    </div>
+    
+    <div id="loadingStatus" class="loading">正在加载图标数据...</div>
+    <div id="iconGrid" class="icon-grid"></div>
+  </div>
+  
+  <div id="iconModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <img id="modalImage" src="" alt="预览图">
+    </div>
+  </div>
+  
+  <div class="footer">
+    Powered by <a href="https://github.com/IDAz7/icons" target="_blank">IDA</a> © 2026
+  </div>
+  
+  <div id="cdnToast" class="toast-box cdn-toast">
+    <span class="cdn-icon">✅</span>
+    <span class="cdn-text">当前选用 <strong id="cdnName">加载中...</strong></span>
+  </div>
+
+  <div id="messageToast" class="toast-box message-toast">
+    <span class="cdn-icon">✨</span>
+    <span id="messageText" class="cdn-text">消息内容</span>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script>
+    const REPO_PATH = 'IDAz7/icons@main/%20IDA.icons.json';
+    const RAW_PATH = 'IDAz7/icons/main/%20IDA.icons.json';
+    
+    // 增加了更多自动测速的源
+    const DEFAULT_CONFIG_SOURCES = [
+      `https://fastly.jsdelivr.net/gh/${REPO_PATH}`,
+      `https://cdn.jsdelivr.net/gh/${REPO_PATH}`,
+      `https://gcore.jsdelivr.net/gh/${REPO_PATH}`,
+      `https://testingcf.jsdelivr.net/gh/${REPO_PATH}`,
+      `https://cdn.jsdmirror.com/gh/${REPO_PATH}`, // 优质国内镜像
+      `https://cdn.staticaly.com/gh/${REPO_PATH}`,
+      `https://raw.gitmirror.com/${RAW_PATH}`,     // GitMirror
+      `https://raw.kgithub.com/${RAW_PATH}`,       // KGitHub
+      `https://raw.kkgithub.com/${RAW_PATH}`,      // KKGitHub
+      `https://ghproxy.net/https://raw.githubusercontent.com/${RAW_PATH}`,
+      `https://ghproxy.com/https://raw.githubusercontent.com/${RAW_PATH}`,
+      `https://mirror.ghproxy.com/https://raw.githubusercontent.com/${RAW_PATH}`,
+      `https://raw.githubusercontent.com/${RAW_PATH}`
+    ];
+
+    let currentBaseUrl = ''; 
+    let icons = [];
+    let cdnTimer = null;
+    let msgTimer = null;
+
+    (function() {
+      const bgBase = 'https://fastly.jsdelivr.net/gh/';
+      const lightBg = bgBase + 'czy13724/czy13724.github.io@master/img/bg/image_20.jpg';
+      const darkBg = bgBase + 'czy13724/czy13724.github.io@master/img/bg/image_32.jpg';
+      const hour = new Date().getHours();
+      const isNight = hour >= 18 || hour < 6;
+      if (isNight) document.body.classList.add('dark-mode');
+      
+      function updateThemeUI() {
+        const isDark = document.body.classList.contains('dark-mode');
+        const toggleIcon = document.querySelector('#darkModeToggle i');
+        toggleIcon.className = isDark ? 'fa fa-sun' : 'fa fa-moon';
+        document.body.style.backgroundImage = `url('${isDark ? darkBg : lightBg}')`;
+      }
+      updateThemeUI();
+      document.getElementById('darkModeToggle').onclick = () => {
+        document.body.classList.toggle('dark-mode');
+        updateThemeUI();
+      };
+    })();
+
+    function getConfigSources() {
+      const manualCDN = localStorage.getItem('manualCDN');
+      if (manualCDN && manualCDN !== 'auto') {
+        return [manualCDN + '%20IDA.icons.json']; 
+      }
+      const lastSuccessful = localStorage.getItem('lastSuccessfulCDN');
+      if (lastSuccessful) {
+        return [lastSuccessful, ...DEFAULT_CONFIG_SOURCES.filter(s => s !== lastSuccessful)];
+      }
+      return [...DEFAULT_CONFIG_SOURCES];
+    }
+
+    async function fetchWithRetry(url) {
+      const cacheBuster = `${url.includes('?') ? '&' : '?'}t=${Date.now()}`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+      
+      try {
+        const response = await fetch(url + cacheBuster, {
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        if (!response.ok) throw new Error('HTTP Error');
+        return await response.json();
+      } catch (error) {
+        clearTimeout(timeoutId);
+        throw error;
+      }
+    }
+
+    async function loadIconData() {
+      const sources = getConfigSources();
+      updateLoadingStatus('🚀 正在连接图标库 (Testing Mirrors)...');
+
+      for (const source of sources) {
+        try {
+          const data = await fetchWithRetry(source);
+          if (validateConfig(data)) {
+            applyData(source, data);
+            return;
+          }
+        } catch (e) {
+          console.warn(`Failed to load from ${source}`, e);
+        }
+      }
+      document.getElementById('loadingStatus').innerHTML = '<div style="color:red">⚠️ 加载失败，请检查网络或切换 CDN</div>';
+    }
+
+    function validateConfig(data) {
+      return data && Array.isArray(data.icons);
+    }
+
+    function applyData(sourceUrl, data) {
+      currentBaseUrl = sourceUrl.substring(0, sourceUrl.lastIndexOf('/') + 1);
+      
+      localStorage.setItem('lastSuccessfulCDN', sourceUrl);
+      document.title = data.name || 'IDA Icons';
+      document.getElementById('description').textContent = data.description || '';
+      
+      showCDNToast(formatSourceName(currentBaseUrl));
+      
+      icons = data.icons.map(icon => {
+        return {
+          name: icon.name,
+          url: currentBaseUrl + 'icon/' + icon.name, 
+          rawUrl: `https://raw.githubusercontent.com/IDAz7/icons/main/icon/${icon.name}`
+        };
+      });
+
+      document.getElementById('loadingStatus').style.display = 'none';
+      renderIcons(icons);
+      updateCategoryFilter(icons);
+    }
+
+    function renderIcons(data) {
+      const grid = document.getElementById('iconGrid');
+      grid.innerHTML = '';
+      data.forEach(icon => {
+        const el = document.createElement('div');
+        el.className = 'icon-item';
+        const name = icon.name.split('.')[0];
+        el.innerHTML = `
+          <img src="${icon.url}" loading="lazy" onclick="openModal('${icon.url}')" onerror="this.style.opacity=0.3">
+          <p title="${icon.name}">${name}</p>
+          <div class="icon-actions">
+            <button onclick="downloadIcon('${icon.url}', '${icon.name}')">下载</button>
+            <button onclick="copyLink('${icon.url}')">复制加速链接</button>
+            <button onclick="copyLink('${icon.rawUrl}')">复制原始链接</button>
+          </div>`;
+        grid.appendChild(el);
+      });
+    }
+
+    function updateLoadingStatus(msg) {
+      const el = document.getElementById('loadingStatus');
+      if (el) el.textContent = msg;
+    }
+
+    function formatSourceName(url) {
+      if (url.includes('cdn.jsdelivr')) return 'jsDelivr Cloudflare';
+      if (url.includes('fastly.jsdelivr')) return 'jsDelivr Fastly';
+      if (url.includes('gcore.jsdelivr')) return 'jsDelivr Gcore';
+      if (url.includes('jsdmirror')) return 'JSDMirror';
+      if (url.includes('staticaly')) return 'Staticaly';
+      if (url.includes('gitmirror')) return 'GitMirror';
+      if (url.includes('kgithub')) return 'KGitHub';
+      if (url.includes('ghproxy')) return 'GHProxy';
+      if (url.includes('githubusercontent')) return 'GitHub Raw';
+      return 'Custom Mirror';
+    }
+
+    function showCDNToast(name) {
+      const toast = document.getElementById('cdnToast');
+      document.getElementById('cdnName').textContent = name;
+      if (cdnTimer) clearTimeout(cdnTimer);
+      toast.classList.add('show');
+      cdnTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function showMessage(msg) {
+      const toast = document.getElementById('messageToast');
+      document.getElementById('messageText').textContent = msg;
+      if (msgTimer) clearTimeout(msgTimer);
+      toast.classList.add('show');
+      msgTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function updateCategoryFilter(icons) {
+      const catFilter = document.getElementById('categoryFilter');
+      catFilter.innerHTML = '<option value="">📌 全部 (All)</option>';
+      const initials = [...new Set(icons.map(i => i.name.charAt(0).toUpperCase()))].sort();
+      initials.forEach(char => {
+        const opt = document.createElement('option');
+        opt.value = char;
+        opt.textContent = char;
+        catFilter.appendChild(opt);
+      });
+    }
+
+    document.getElementById('categoryFilter').addEventListener('change', e => {
+      const char = e.target.value;
+      renderIcons(char ? icons.filter(i => i.name.toUpperCase().startsWith(char)) : icons);
+    });
+
+    document.getElementById('search').addEventListener('input', e => {
+      const term = e.target.value.toLowerCase();
+      renderIcons(icons.filter(i => i.name.toLowerCase().includes(term)));
+    });
+
+    window.downloadIcon = (url, name) => {
+      const a = document.createElement('a');
+      a.href = url; a.download = name;
+      document.body.appendChild(a);
+      a.click(); document.body.removeChild(a);
+      showMessage('开始下载...');
+    };
+
+    window.copyLink = (url) => {
+      navigator.clipboard.writeText(url)
+        .then(() => showMessage('✨ 链接已复制！'))
+        .catch(() => showMessage('❌ 复制失败'));
+    };
+    
+    document.getElementById('copyCollectionBtn').onclick = () => {
+      navigator.clipboard.writeText(currentBaseUrl + '%20IDA.icons.json')
+        .then(() => showMessage('📋 JSON 链接已复制'))
+        .catch(() => showMessage('❌ 复制失败'));
+    };
+
+    window.openModal = (url) => {
+      document.getElementById('iconModal').style.display = 'flex';
+      document.getElementById('modalImage').src = url;
+    };
+    document.getElementById('closeModal').onclick = () => {
+      document.getElementById('iconModal').style.display = 'none';
+    };
+
+    document.getElementById('downloadAll').onclick = () => {
+      if (!icons.length) return;
+      showMessage('🚀 正在打包，请稍候...');
+      const zip = new JSZip();
+      let count = 0;
+      icons.forEach(icon => {
+        fetch(icon.url).then(r => r.blob()).then(blob => {
+          zip.file(icon.name, blob);
+          count++;
+          if (count === icons.length) {
+            zip.generateAsync({type:"blob"}).then(content => {
+              const a = document.createElement('a');
+              a.href = URL.createObjectURL(content);
+              a.download = "ida-icons.zip";
+              document.body.appendChild(a);
+              a.click();
+              showMessage('✅ 下载开始');
+            });
+          }
+        });
+      });
+    };
+
+    const selector = document.getElementById('cdnSelector');
+    selector.value = localStorage.getItem('manualCDN') || 'auto';
+    selector.onchange = (e) => {
+      localStorage.setItem('manualCDN', e.target.value);
+      if(confirm('切换源需要刷新页面，是否刷新？')) location.reload();
+    };
+
+    loadIconData();
+  </script>
+</body>
+</html>
